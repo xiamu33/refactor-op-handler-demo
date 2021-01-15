@@ -1,1 +1,9 @@
-GET http://127.0.0.1:3003/home HTTP/1.1
+GET http://127.0.0.1:3003/home?type=activity&action=actionA HTTP/1.1
+
+###
+
+GET http://127.0.0.1:3003/home?type=activity&action=actionB HTTP/1.1
+
+###
+
+GET http://127.0.0.1:3003/home?type=activity&action=actionC HTTP/1.1
