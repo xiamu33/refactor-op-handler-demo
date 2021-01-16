@@ -2,7 +2,7 @@
  * @Author: xiamu
  * @Date: 2021-01-15 20:00:47
  * @LastEditors: xiamu
- * @LastEditTime: 2021-01-16 18:12:54
+ * @LastEditTime: 2021-01-16 20:31:10
  * @FilePath: /refactor-op-handler-demo/src/handler/HandlerTransfer.ts
  * @Description: 
  */
@@ -18,7 +18,8 @@ export class HandlerTransfer {
 
   public execAction(data: HandlerAction) {
     const { type, action } = data;
-    const handle = Container.get<any>(type);
+    const handlers = Container.getMany<any>(type);
+    const handle = handlers.find(handler => handler[action]);
     if (typeof handle[action] !== "function") throw new Error(`${action} is not a action`);
     return handle[action](data);
   }
