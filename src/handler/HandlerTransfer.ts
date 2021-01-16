@@ -7,7 +7,7 @@
  * @Description: 
  */
 
-import { ActivityHandler } from "./ActivityHandler";
+import { ActivityHandler } from "./models/ActivityHandler";
 
 export class HandlerTransfer {
 
