@@ -6,7 +6,11 @@ GET http://127.0.0.1:3003/home?type=activity&action=actionB HTTP/1.1
 
 ###
 
-GET http://127.0.0.1:3003/home?type=activity&action=actionC HTTP/1.1
+GET http://127.0.0.1:3003/home?type=activity&action=actionD HTTP/1.1
+
+###
+
+GET http://127.0.0.1:3003/home?type=activity&action=actionE HTTP/1.1
 
 ###
 
