@@ -7,3 +7,11 @@ GET http://127.0.0.1:3003/home?type=activity&action=actionB HTTP/1.1
 ###
 
 GET http://127.0.0.1:3003/home?type=activity&action=actionC HTTP/1.1
+
+###
+
+GET http://127.0.0.1:3003/home?type=login&action=login&user=xiamu&token=123456 HTTP/1.1
+
+###
+
+GET http://127.0.0.1:3003/home?type=login&action=logout&user=xiamu HTTP/1.1

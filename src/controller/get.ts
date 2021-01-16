@@ -7,7 +7,8 @@ const handlerTransfer = new HandlerTransfer();
 
 export function getHome(req: Request, res: Response, next: NextFunction) {
   const { type, action } = req.query;
-  const rspText = handlerTransfer.execAction({ type, action }) || 'home';
+  if (!type || !action) throw new Error('must provide param: type, action');
+  const rspText = handlerTransfer.execAction(req.query) || 'home';
   emitConfigLoadEvent();
   res.send(rspText);
 }
