@@ -2,18 +2,19 @@
  * @Author: xiamu
  * @Date: 2021-01-15 20:00:47
  * @LastEditors: xiamu
- * @LastEditTime: 2021-01-16 20:31:10
- * @FilePath: /refactor-op-handler-demo/src/handler/HandlerTransfer.ts
+ * @LastEditTime: 2021-01-20 15:42:30
+ * @FilePath: \test\src\handler\HandlerTransfer.ts
  * @Description: 
  */
 
-import Container from "typedi";
+import Container, { Service } from "typedi";
 import { importClassesFromDirs } from "../utils";
 
 export class HandlerTransfer {
 
   constructor() {
     registerHandlers();
+    Container.set(DbHandler, new DbHandler())
   }
 
   public execAction(data: HandlerAction) {
@@ -38,4 +39,12 @@ export enum TransType {
 interface HandlerAction {
   type: TransType;
   action: string;
+}
+
+export default class DbHandler {
+  public db = 'db'
+}
+
+export function GameService(systemId: TransType) {
+  return Service({ id: systemId, multiple: true })
 }

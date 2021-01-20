@@ -2,19 +2,24 @@
  * @Author: xiamu
  * @Date: 2021-01-15 20:11:10
  * @LastEditors: xiamu
- * @LastEditTime: 2021-01-16 19:47:07
- * @FilePath: /refactor-op-handler-demo/src/handler/models/ActivityHandler.ts
+ * @LastEditTime: 2021-01-20 15:45:39
+ * @FilePath: \test\src\handler\models\ActivityHandler.ts
  * @Description: 
  */
 
-import { Service } from "typedi";
+import DbHandler, { GameService, TransType } from "../HandlerTransfer";
 
-@Service({ id: 'activity', multiple: true })
+@GameService(TransType.activity)
 export class ActivityHandler {
   private sign: string = 'null';
 
+  constructor(
+    private _db: DbHandler
+  ) { }
+
   public actionA() {
     console.log('this is action A', this.sign);
+    console.log(this._db);
     return this.sign = 'A';
   }
 
