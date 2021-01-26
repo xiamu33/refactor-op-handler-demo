@@ -2,7 +2,7 @@
  * @Author: xiamu
  * @Date: 2021-01-15 20:00:47
  * @LastEditors: xiamu
- * @LastEditTime: 2021-01-20 15:42:30
+ * @LastEditTime: 2021-01-26 16:08:19
  * @FilePath: \test\src\handler\HandlerTransfer.ts
  * @Description: 
  */
@@ -28,10 +28,22 @@ export class HandlerTransfer {
 }
 
 function registerHandlers() {
-  const handlers = importClassesFromDirs([`${__dirname}/models/**/*`]);
-  console.log('handlers: ', handlers);
+  const files = require?.context(`./models`, true, /\.js/);
+  if (files) {
+    importAll(files);
+    console.log('files: ', files, cache);
+    if (cache.length) {
+      cache.forEach(p => require(p));
+    }
+  } else {
+    const handlers = importClassesFromDirs([`${__dirname}/models/**/*`]);
+    console.log('---------- handlers: ', handlers);
+  }
 }
-
+export const cache: string[] = [];
+function importAll (r: any) {
+  r.keys().forEach((p: any) => cache.push(r.resolve(p)));
+}
 export enum TransType {
   activity = "activity"
 }

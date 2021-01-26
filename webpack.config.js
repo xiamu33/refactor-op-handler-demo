@@ -12,7 +12,7 @@ module.exports = {
     filename: 'server.js'
   },
   node: {
-    __dirname: true
+    // __dirname: true
   },
   module: {
     rules: [
@@ -33,7 +33,7 @@ module.exports = {
     ]
   },
   optimization: {
-    minimize: true
+    minimize: false
   }
 };
 
