@@ -2,7 +2,7 @@
  * @Author: xiamu
  * @Date: 2021-01-15 20:00:47
  * @LastEditors: xiamu
- * @LastEditTime: 2021-01-27 10:06:02
+ * @LastEditTime: 2021-01-27 11:11:16
  * @FilePath: \test\src\handler\HandlerTransfer.ts
  * @Description: 
  */
@@ -28,7 +28,7 @@ export class HandlerTransfer {
 }
 
 function registerHandlers() {
-  const files = require?.context(`${__dirname}/models/`, true, /\.js/);
+  const files = require.context?.(`${__dirname}/models/`, true, /\.js/);
   if (files) {
     files.keys().forEach(f => files(f));
   } else {
